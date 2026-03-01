@@ -18,44 +18,58 @@
         }
 
         body {
-            /* 가운데 정렬을 위한 Flexbox 설정 */
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            
-            /* 화면 전체 높이를 차지하도록 설정 */
-            min-height: 100vh;
+            /* vh 대신 최신 dvh를 사용하여 모바일 브라우저 주소창 밀림 현상 방지 */
+            min-height: 100dvh; 
             background-color: #ffffff;
+            overflow: hidden; /* 스크롤바 생기는 것 방지 */
         }
 
         /* info 링크 스타일 */
         .info-link {
-            text-decoration: none; /* 밑줄 제거 */
-            color: #000000;        /* 글자색 검정 */
-            margin-bottom: 20px;   /* 고양이와의 간격 */
+            text-decoration: none;
+            color: #000000;
+            margin-bottom: 20px;
             cursor: pointer;
         }
 
-        /* info 폰트 스타일 (보내주신 Figtree 적용) */
+        /* info 폰트 스타일 */
         .info-text {
             font-family: "Figtree", sans-serif;
-            font-optical-sizing: auto;
             font-weight: 900;
-            font-style: normal;
-            font-size: 5rem;       /* 글자 크기 (기기에 따라 조절 가능) */
-            letter-spacing: -2px;  /* 스크린샷처럼 글자 사이 간격 좁게 */
+            font-size: clamp(3.5rem, 15vw, 6rem); 
+            letter-spacing: -0.05em;
+            line-height: 1;
         }
 
-        /* 고양이 GIF 컨테이너 (반응형의 핵심) */
+        /* 고양이 GIF 컨테이너 (패드/PC 기준) */
         .cat-container {
-            width: 90%;          /* 모바일에서는 가로 폭의 90%를 차지 */
-            max-width: 500px;    /* 하지만 패드나 PC에서도 500px 이상 커지지 않게 제한 */
+            width: 80%;
+            max-width: 450px;
+            aspect-ratio: 1 / 1;
         }
 
-        /* Tenor 기본 텍스트 링크 숨기기 (깔끔하게 고양이만 보이게) */
+        /* Tenor 기본 텍스트 링크 숨기기 */
         .tenor-gif-embed a {
             display: none !important;
+        }
+
+        /* 📱 모바일 화면에서만 적용되는 마법의 코드 (화면 위로 끌어올리기) */
+        @media (max-width: 768px) {
+            body {
+                /* 완벽한 중앙 정렬 대신, 시작점을 위에서 18% 위치로 끌어올림 */
+                justify-content: flex-start;
+                padding-top: 18vh; 
+            }
+            .info-link {
+                margin-bottom: 5px; /* 글자와 고양이 사이 간격을 확 좁힘 */
+            }
+            .cat-container {
+                width: 95%; /* 폰에서는 고양이가 꽉 차 보이게 확대 */
+            }
         }
     </style>
 </head>
