@@ -16,58 +16,64 @@
             box-sizing: border-box;
         }
 
+        /* 💻 패드 & PC 기본 설정 (절대 안 겹치게 위에서부터 쌓음) */
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: center;
+            justify-content: flex-start; /* 화면 위에서부터 차례대로 배치 */
+            padding-top: 8dvh; /* 폰트를 위로 확 올림 */
             min-height: 100dvh; 
             background-color: #ffffff;
             overflow: hidden;
-            position: relative; 
         }
 
-        /* info 글자 공통 설정 (기기 상관없이 화면 위쪽으로 고정) */
         .info-link {
             text-decoration: none;
             color: #000000;
             cursor: pointer;
             z-index: 10;
-            position: absolute; 
-            top: 10dvh; /* 화면 맨 위에서 10% 위치로 쫙 올림 */
+            /* 겹침 방지를 위해 position: absolute 제거 */
         }
 
         .info-text {
             font-family: "Figtree", sans-serif;
             font-weight: 900;
-            /* 폰트 크기도 전체적으로 살짝 더 큼직하게 조정 */
             font-size: clamp(4rem, 15vw, 7rem); 
             letter-spacing: -0.05em;
             line-height: 1;
         }
 
-        /* 패드/PC용 고양이 크기 설정 (사이즈 확 키움) */
         .cat-container {
             width: 85%;
-            max-width: 600px; /* 기존 450px에서 600px로 큼직하게 확대 */
+            max-width: 650px; /* 고양이 크기 최대치로 키움 */
+            max-height: 65dvh; /* 단, 화면 밖으로 넘치거나 폰트랑 겹치지 않게 방어막 설정 */
             aspect-ratio: 1 / 1;
-            /* 글자가 위로 갔으니 고양이는 살짝 아래로 내려서 중앙을 맞춤 */
-            margin-top: 5dvh; 
+            /* 남은 공간의 한가운데에 고양이를 배치 */
+            margin-top: auto; 
+            margin-bottom: auto;
         }
 
         .tenor-gif-embed a {
             display: none !important;
         }
 
-        /* 📱 모바일 전용 (화면폭 768px 이하) */
+        /* 📱 모바일 전용 (화면폭 768px 이하) - 맘에 들어했던 세팅 그대로 복구! */
         @media (max-width: 768px) {
+            body {
+                justify-content: center; /* 고양이 정중앙 고정 */
+                padding-top: 0;
+                position: relative;
+            }
             .info-link {
-                top: 12dvh; /* 모바일에서는 위쪽 공간을 살짝 더 줌 (고양이랑 간격 확보) */
+                position: absolute; /* 글자만 따로 공중에 띄움 */
+                top: 10dvh; 
             }
             .cat-container {
-                width: 90%; /* 모바일에서는 폰 화면에 꽉 차게 */
-                max-width: 100%;
-                margin-top: 0; /* 모바일에서는 완벽한 중앙에 위치 */
+                width: 90%;
+                max-width: none;
+                margin-top: 0;
+                margin-bottom: 0;
             }
         }
     </style>
