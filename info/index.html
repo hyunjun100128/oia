@@ -39,17 +39,17 @@
             display: block;
             width: 100%;
             text-align: center;
-            padding-bottom: 50px; /* 마진 겹침 버그를 막기 위해 margin 대신 padding 사용 */
+            padding-bottom: 50px; 
             cursor: pointer;
             position: relative;
-            z-index: 9999; /* 화면의 그 어떤 요소도 이 버튼을 덮을 수 없도록 무한대급 숫자로 끌어올림 */
-            -webkit-tap-highlight-color: transparent; /* 터치할 때 회색 깜빡임 방지 */
+            z-index: 9999; 
+            -webkit-tap-highlight-color: transparent; 
         }
 
         .main-title {
             font-size: clamp(2rem, 8vw, 3rem);
             letter-spacing: -0.03em;
-            margin: 0; /* 브라우저가 임의로 여백을 오계산해서 위로 튀는 현상 완벽 차단 */
+            margin: 0; 
         }
 
         .row {
@@ -68,7 +68,7 @@
             display: flex;
             flex-direction: column;
             position: relative;
-            z-index: 1; /* 사진들이 타이틀을 덮지 않도록 레이어 순위를 낮춤 */
+            z-index: 1; 
         }
 
         .row.reverse .side-col {
@@ -114,6 +114,32 @@
         .row.reverse .text-col {
             text-align: right;
         }
+
+        /* ⭐️ 추가된 Credit 푸터 구역 스타일 */
+        .credit-footer {
+            display: flex;
+            align-items: center; /* 수직 중앙 정렬 */
+            justify-content: center;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            gap: 15px; /* 선과 글자 사이의 간격 */
+        }
+
+        .credit-line {
+            flex: 1; /* 남는 공간을 선이 꽉 채움 */
+            height: 6px; /* 선 굵기 */
+            background-color: #000000;
+        }
+
+        .credit-link {
+            font-size: clamp(2.5rem, 9vw, 3.5rem);
+            text-decoration: none;
+            color: #000000;
+            letter-spacing: -0.03em;
+            -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
+        }
+
     </style>
 </head>
 <body>
@@ -196,6 +222,12 @@
             <div class="text-col">
                 Conill un animal petit i amable, molt popular com a company a casa.
             </div>
+        </div>
+
+        <div class="credit-footer">
+            <div class="credit-line"></div>
+            <a href="/credit/us" class="credit-link">Credit</a>
+            <div class="credit-line"></div>
         </div>
 
     </div>
