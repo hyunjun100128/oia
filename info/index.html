@@ -29,28 +29,34 @@
         .container {
             max-width: 600px;
             margin: 0 auto;
+            position: relative; /* 레이아웃 안정성 강화 */
         }
 
-        /* ⭐️ 변경 1: 타이틀 누르면 메인으로 돌아가는 기능 */
+        /* ⭐️ 철벽 방어: 어떤 경우에도 클릭이 막히지 않게 최상단 레이어로 띄움 */
         .title-link {
-            text-decoration: none; /* 밑줄 제거 */
-            color: inherit; /* 검은색 유지 */
+            text-decoration: none;
+            color: inherit;
             display: block;
-            margin-bottom: 60px;
+            width: 100%;
+            text-align: center;
+            padding-bottom: 50px; /* 마진 겹침 버그를 막기 위해 margin 대신 padding 사용 */
             cursor: pointer;
+            position: relative;
+            z-index: 9999; /* 화면의 그 어떤 요소도 이 버튼을 덮을 수 없도록 무한대급 숫자로 끌어올림 */
+            -webkit-tap-highlight-color: transparent; /* 터치할 때 회색 깜빡임 방지 */
         }
 
         .main-title {
             font-size: clamp(2rem, 8vw, 3rem);
-            text-align: center;
             letter-spacing: -0.03em;
+            margin: 0; /* 브라우저가 임의로 여백을 오계산해서 위로 튀는 현상 완벽 차단 */
         }
 
         .row {
             display: flex;
             gap: 15px;
             margin-bottom: 50px; 
-            align-items: stretch; /* 텍스트 구역이 사진 구역과 같은 높이를 가지도록 늘림 */
+            align-items: stretch; 
         }
 
         .row.reverse {
@@ -61,6 +67,8 @@
             flex: 0 0 42%;
             display: flex;
             flex-direction: column;
+            position: relative;
+            z-index: 1; /* 사진들이 타이틀을 덮지 않도록 레이어 순위를 낮춤 */
         }
 
         .row.reverse .side-col {
@@ -91,20 +99,18 @@
             display: none !important;
         }
 
-        /* ⭐️ 변경 2: 텍스트를 사진 높이에 맞춰 중앙 정렬 & 깔끔한 비율 조정 */
         .text-col {
             flex: 1;
             font-size: clamp(1.4rem, 5.5vw, 2.2rem);
             letter-spacing: -0.03em;
-            line-height: 1.05; /* 포스터처럼 글자 위아래가 쫀쫀하게 붙도록 수정 */
+            line-height: 1.05; 
             display: flex;
             flex-direction: column;
-            justify-content: center; /* 텍스트를 수직 한가운데로 예쁘게 배치 */
+            justify-content: center; 
             text-align: left; 
             word-break: keep-all;
         }
 
-        /* 사진이 오른쪽일 때는 텍스트도 오른쪽 정렬을 해서 레이아웃 균형을 맞춤 */
         .row.reverse .text-col {
             text-align: right;
         }
