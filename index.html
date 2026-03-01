@@ -16,65 +16,46 @@
             box-sizing: border-box;
         }
 
-        /* 💻 패드 & PC 기본 설정 (절대 안 겹치게 위에서부터 쌓음) */
         body {
             display: flex;
             flex-direction: column;
             align-items: center;
-            justify-content: flex-start; /* 화면 위에서부터 차례대로 배치 */
-            padding-top: 8dvh; /* 폰트를 위로 확 올림 */
+            /* 고양이는 무조건 화면 정중앙에 위치 */
+            justify-content: center; 
             min-height: 100dvh; 
             background-color: #ffffff;
-            overflow: hidden;
+            /* 스크롤바가 생기거나 화면이 잘리는 현상 완벽 차단 */
+            overflow: hidden; 
+            position: relative;
         }
 
         .info-link {
             text-decoration: none;
             color: #000000;
-            cursor: pointer;
+            /* 글자를 흐름에서 빼서 화면 위쪽에 딱 고정 */
+            position: absolute; 
+            top: 15dvh; 
             z-index: 10;
-            /* 겹침 방지를 위해 position: absolute 제거 */
         }
 
         .info-text {
             font-family: "Figtree", sans-serif;
             font-weight: 900;
-            font-size: clamp(4rem, 15vw, 7rem); 
+            /* 폰트 크기 줄임: 어떤 기기에서도 한눈에 쏙 들어오는 안전한 크기 */
+            font-size: clamp(2.5rem, 6vmin, 4.5rem); 
             letter-spacing: -0.05em;
             line-height: 1;
         }
 
         .cat-container {
-            width: 85%;
-            max-width: 650px; /* 고양이 크기 최대치로 키움 */
-            max-height: 65dvh; /* 단, 화면 밖으로 넘치거나 폰트랑 겹치지 않게 방어막 설정 */
+            /* 핵심 해결책: 화면 가로세로 중 '더 짧은 쪽'의 55% 크기만 차지함 */
+            /* 이렇게 하면 화면이 아무리 길거나 넓어도 글자와 절대 안 겹침 */
+            width: clamp(200px, 55vmin, 400px);
             aspect-ratio: 1 / 1;
-            /* 남은 공간의 한가운데에 고양이를 배치 */
-            margin-top: auto; 
-            margin-bottom: auto;
         }
 
         .tenor-gif-embed a {
             display: none !important;
-        }
-
-        /* 📱 모바일 전용 (화면폭 768px 이하) - 맘에 들어했던 세팅 그대로 복구! */
-        @media (max-width: 768px) {
-            body {
-                justify-content: center; /* 고양이 정중앙 고정 */
-                padding-top: 0;
-                position: relative;
-            }
-            .info-link {
-                position: absolute; /* 글자만 따로 공중에 띄움 */
-                top: 10dvh; 
-            }
-            .cat-container {
-                width: 90%;
-                max-width: none;
-                margin-top: 0;
-                margin-bottom: 0;
-            }
         }
     </style>
 </head>
