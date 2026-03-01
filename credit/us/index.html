@@ -46,9 +46,11 @@
             margin-bottom: 40px;
         }
 
+        /* ⭐️ 변경: 타이틀이 링크가 되었으므로 마우스 커서 설정 추가 */
         .title-text {
             font-size: clamp(3rem, 12vw, 4.5rem);
             letter-spacing: -0.03em;
+            cursor: pointer;
         }
 
         /* ⭐️ 변경점: Credit이랑 완벽하게 똑같은 폰트 크기로 수정 */
@@ -93,7 +95,7 @@
     <div class="container">
         
         <div class="top-header">
-            <div class="title-text">Credit</div>
+            <a href="/" class="title-text">Credit</a>
             <div class="lang-switch">
                 <span class="active">En</span> / <a href="/credit/cat" class="inactive">Cat</a>
             </div>
