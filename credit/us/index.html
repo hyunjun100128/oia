@@ -1,1 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Credit - oia.cat</title>
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: "Outfit", sans-serif;
+            font-weight: 900;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 40px 20px;
+            /* 글자 위아래 간격을 사진처럼 좁게 설정 */
+            line-height: 1.1; 
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* 모든 링크의 밑줄 제거 및 검은색 고정 */
+        a {
+            text-decoration: none;
+            color: #000000;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        /* 1. 상단 Credit 과 En / Cat 구역 */
+        .top-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 40px;
+        }
+
+        .title-text {
+            font-size: clamp(3rem, 12vw, 4.5rem);
+            letter-spacing: -0.03em;
+        }
+
+        .lang-switch {
+            font-size: clamp(1.8rem, 7vw, 2.8rem);
+            letter-spacing: -0.03em;
+        }
+
+        /* 현재 페이지인 En은 검은색, Cat은 아직 안 만들었으니 연하게 */
+        .lang-switch .active { color: #000000; }
+        .lang-switch .inactive { color: #aaaaaa; }
+
+        /* 2. Made by @w4at */
+        .subtitle {
+            font-size: clamp(2.2rem, 8.5vw, 3.5rem);
+            letter-spacing: -0.03em;
+            margin-bottom: 50px;
+        }
+
+        /* 3. SNS 링크 리스트 */
+        .sns-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px; /* 줄과 줄 사이 간격 */
+        }
+
+        .sns-link {
+            font-size: clamp(3rem, 11vw, 4.5rem);
+            letter-spacing: -0.03em;
+            display: block;
+        }
+
+        /* Twitch와 TikTok을 한 줄에 넣기 위한 설정 */
+        .row-links {
+            display: flex;
+            gap: 20px; /* Twitch와 TikTok 사이 간격 */
+            flex-wrap: wrap; /* 화면이 너무 좁으면 자동으로 줄바꿈 */
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        
+        <div class="top-header">
+            <div class="title-text">Credit</div>
+            <div class="lang-switch">
+                <span class="active">En</span> / <a href="/credit/cat" class="inactive">Cat</a>
+            </div>
+        </div>
+
+        <div class="subtitle">
+            Made by @w4at
+        </div>
+
+        <div class="sns-list">
+            <a href="https://discord.gg/Yatcquzjjs" target="_blank" class="sns-link">Discord</a>
+            <a href="https://www.instagram.com/w4atf?igsh=YXdveDY0YzZzcnk1&utm_source=qr" target="_blank" class="sns-link">Instagram</a>
+            <a href="https://www.reddit.com/u/w4atf/s/KI2bSo7yFM" target="_blank" class="sns-link">Reddit</a>
+            
+            <div class="row-links">
+                <a href="https://twitch.com/w4atf" target="_blank" class="sns-link">Twitch</a>
+                <a href="https://www.tiktok.com/@w4atf" target="_blank" class="sns-link">TikTok</a>
+            </div>
+
+            <a href="https://www.youtube.com/@w4at" target="_blank" class="sns-link">YouTube</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
