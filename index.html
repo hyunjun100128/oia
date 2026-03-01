@@ -1,1 +1,76 @@
-Test! oia.cat
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oia Cat</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@900&display=swap" rel="stylesheet">
+
+    <style>
+        /* 기본 여백 제거 및 화면 꽉 채우기 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 가운데 정렬을 위한 Flexbox 설정 */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            
+            /* 화면 전체 높이를 차지하도록 설정 */
+            min-height: 100vh;
+            background-color: #ffffff;
+        }
+
+        /* info 링크 스타일 */
+        .info-link {
+            text-decoration: none; /* 밑줄 제거 */
+            color: #000000;        /* 글자색 검정 */
+            margin-bottom: 20px;   /* 고양이와의 간격 */
+            cursor: pointer;
+        }
+
+        /* info 폰트 스타일 (보내주신 Figtree 적용) */
+        .info-text {
+            font-family: "Figtree", sans-serif;
+            font-optical-sizing: auto;
+            font-weight: 900;
+            font-style: normal;
+            font-size: 5rem;       /* 글자 크기 (기기에 따라 조절 가능) */
+            letter-spacing: -2px;  /* 스크린샷처럼 글자 사이 간격 좁게 */
+        }
+
+        /* 고양이 GIF 컨테이너 (반응형의 핵심) */
+        .cat-container {
+            width: 90%;          /* 모바일에서는 가로 폭의 90%를 차지 */
+            max-width: 500px;    /* 하지만 패드나 PC에서도 500px 이상 커지지 않게 제한 */
+        }
+
+        /* Tenor 기본 텍스트 링크 숨기기 (깔끔하게 고양이만 보이게) */
+        .tenor-gif-embed a {
+            display: none !important;
+        }
+    </style>
+</head>
+<body>
+
+    <a href="/info" class="info-link">
+        <h1 class="info-text">info</h1>
+    </a>
+
+    <div class="cat-container">
+        <div class="tenor-gif-embed" data-postid="12805916815008299407" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+            <a href="https://tenor.com/view/oia-uia-oia-cat-uia-cat-catcultclassics-gif-12805916815008299407">Oia Uia Sticker</a>from <a href="https://tenor.com/search/oia-stickers">Oia Stickers</a>
+        </div> 
+        <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+    </div>
+
+</body>
+</html>
