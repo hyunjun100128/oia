@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Benvinguts a oia.cat!</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* 폰트 전체 적용 (가장 굵은 900 적용) */
+            font-family: "Outfit", sans-serif;
+            font-weight: 900;
+            background-color: #ffffff;
+            color: #000000;
+            padding: 40px 20px;
+            /* 글자 위아래 간격을 사진처럼 좁게 설정 */
+            line-height: 1.1; 
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* 메인 타이틀 */
+        .main-title {
+            font-size: clamp(2rem, 8vw, 3rem);
+            text-align: center;
+            margin-bottom: 50px;
+            letter-spacing: -0.03em;
+        }
+
+        /* 각 동물별 가로 한 줄 구역 */
+        .row {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 35px;
+            align-items: flex-start; /* 위쪽 정렬 */
+        }
+
+        /* 짝수 줄(오른쪽 정렬)을 위한 설정 */
+        .row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        /* 이름 + 사진이 들어가는 칸 (화면의 약 40% 차지) */
+        .side-col {
+            flex: 0 0 42%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        /* 오른쪽 정렬일 때 이름과 사진을 오른쪽으로 붙임 */
+        .row.reverse .side-col {
+            align-items: flex-end;
+        }
+
+        /* 동물 이름 스타일 */
+        .name {
+            font-size: clamp(2.5rem, 10vw, 4rem);
+            letter-spacing: -0.03em;
+            margin-bottom: 5px;
+            white-space: nowrap; /* 글자 줄바꿈 방지 */
+        }
+
+        /* 사진 및 GIF를 정사각형으로 고정하는 틀 */
+        .img-box {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            border-radius: 5px;
+            overflow: hidden;
+        }
+
+        .img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* 사진이 찌그러지지 않고 정사각형에 꽉 차게 */
+        }
+
+        /* Tenor GIF 아래에 뜨는 파란색 글씨 숨기기 */
+        .tenor-gif-embed a {
+            display: none !important;
+        }
+
+        /* 설명 글 스타일 */
+        .text-col {
+            flex: 1;
+            font-size: clamp(1.4rem, 6vw, 2.2rem);
+            letter-spacing: -0.03em;
+            padding-top: 5px; /* 사진과 살짝 높이를 맞추기 위함 */
+            text-align: left; /* 설명글은 무조건 왼쪽 정렬 (사진과 동일) */
+            word-break: keep-all; /* 단어 단위로 예쁘게 줄바꿈 */
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="main-title">Benvinguts a oia.cat!</h1>
+
+        <div class="row">
+            <div class="side-col">
+                <div class="name">gat :</div>
+                <div class="img-box">
+                    <div class="tenor-gif-embed" data-postid="12805916815008299407" data-share-method="host" data-aspect-ratio="1" data-width="100%">
+                        <a href="https://tenor.com/view/oia-uia-oia-cat-uia-cat-catcultclassics-gif-12805916815008299407">Oia Uia Sticker</a>from <a href="https://tenor.com/search/oia-stickers">Oia Stickers</a>
+                    </div> 
+                    <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+                </div>
+            </div>
+            <div class="text-col">
+                Gats han viscut amb els humans des de l'antic Egipte.
+            </div>
+        </div>
+
+        <div class="row reverse">
+            <div class="side-col">
+                <div class="name">: Ruc català</div>
+                <div class="img-box">
+                    <img src="catal.png" alt="Ruc català">
+                </div>
+            </div>
+            <div class="text-col">
+                El ruc català és un ase autòctona de gran talla, símbol d'identitat i persistència.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="side-col">
+                <div class="name">gos :</div>
+                <div class="img-box">
+                    <img src="dog.png" alt="gos">
+                </div>
+            </div>
+            <div class="text-col">
+                Gos és el millor amic de l'home, conegut per la seva lleialtat.
+            </div>
+        </div>
+
+        <div class="row reverse">
+            <div class="side-col">
+                <div class="name">: Hàmster</div>
+                <div class="img-box">
+                    <img src="hamster.png" alt="Hàmster">
+                </div>
+            </div>
+            <div class="text-col">
+                Hàmster és un petit rosegador molt actiu, estimat com a primera mascota.
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="side-col">
+                <div class="name">Ós :</div>
+                <div class="img-box">
+                    <img src="bear.png" alt="Ós">
+                </div>
+            </div>
+            <div class="text-col">
+                un animal imponent de les muntanyes, símbol de força i natura salvatge.
+            </div>
+        </div>
+
+        <div class="row reverse">
+            <div class="side-col">
+                <div class="name">: Conill</div>
+                <div class="img-box">
+                    <img src="karrot.png" alt="Conill">
+                </div>
+            </div>
+            <div class="text-col">
+                Conill un animal petit i amable, molt popular com a company a casa.
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
