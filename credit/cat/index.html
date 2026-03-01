@@ -23,7 +23,11 @@
             color: #000000;
             padding: 40px 20px;
             line-height: 1.1; 
-            overflow-x: hidden;
+            
+            /* ⭐️ 화면 위아래 스크롤(스와이프) 완벽 고정 */
+            overflow: hidden; 
+            touch-action: none; /* 터치로 끌어당기는 액션 차단 */
+            height: 100dvh; /* 모바일 화면 높이에 딱 맞춤 */
         }
 
         .container {
