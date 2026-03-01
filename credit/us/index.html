@@ -22,7 +22,6 @@
             background-color: #ffffff;
             color: #000000;
             padding: 40px 20px;
-            /* 글자 위아래 간격을 사진처럼 좁게 설정 */
             line-height: 1.1; 
             overflow-x: hidden;
         }
@@ -33,7 +32,6 @@
             position: relative;
         }
 
-        /* 모든 링크의 밑줄 제거 및 검은색 고정 */
         a {
             text-decoration: none;
             color: #000000;
@@ -44,7 +42,7 @@
         .top-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-end;
+            align-items: baseline; /* 글자 아래쪽 라인을 완벽하게 맞춤 */
             margin-bottom: 40px;
         }
 
@@ -53,12 +51,12 @@
             letter-spacing: -0.03em;
         }
 
+        /* ⭐️ 변경점: Credit이랑 완벽하게 똑같은 폰트 크기로 수정 */
         .lang-switch {
-            font-size: clamp(1.8rem, 7vw, 2.8rem);
+            font-size: clamp(3rem, 12vw, 4.5rem); 
             letter-spacing: -0.03em;
         }
 
-        /* 현재 페이지인 En은 검은색, Cat은 아직 안 만들었으니 연하게 */
         .lang-switch .active { color: #000000; }
         .lang-switch .inactive { color: #aaaaaa; }
 
@@ -73,7 +71,7 @@
         .sns-list {
             display: flex;
             flex-direction: column;
-            gap: 15px; /* 줄과 줄 사이 간격 */
+            gap: 15px; 
         }
 
         .sns-link {
@@ -82,11 +80,10 @@
             display: block;
         }
 
-        /* Twitch와 TikTok을 한 줄에 넣기 위한 설정 */
         .row-links {
             display: flex;
-            gap: 20px; /* Twitch와 TikTok 사이 간격 */
-            flex-wrap: wrap; /* 화면이 너무 좁으면 자동으로 줄바꿈 */
+            gap: 20px; 
+            flex-wrap: wrap; 
         }
 
     </style>
