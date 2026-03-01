@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Figtree:wght@900&display=swap" rel="stylesheet">
 
     <style>
-        /* 기본 여백 제거 및 화면 꽉 채우기 */
         * {
             margin: 0;
             padding: 0;
@@ -22,21 +21,20 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            /* vh 대신 최신 dvh를 사용하여 모바일 브라우저 주소창 밀림 현상 방지 */
             min-height: 100dvh; 
             background-color: #ffffff;
-            overflow: hidden; /* 스크롤바 생기는 것 방지 */
+            overflow: hidden;
+            position: relative; /* 모바일에서 글자를 공중에 띄우기 위한 기준점 */
         }
 
-        /* info 링크 스타일 */
         .info-link {
             text-decoration: none;
             color: #000000;
             margin-bottom: 20px;
             cursor: pointer;
+            z-index: 10;
         }
 
-        /* info 폰트 스타일 */
         .info-text {
             font-family: "Figtree", sans-serif;
             font-weight: 900;
@@ -45,30 +43,31 @@
             line-height: 1;
         }
 
-        /* 고양이 GIF 컨테이너 (패드/PC 기준) */
         .cat-container {
             width: 80%;
             max-width: 450px;
             aspect-ratio: 1 / 1;
         }
 
-        /* Tenor 기본 텍스트 링크 숨기기 */
         .tenor-gif-embed a {
             display: none !important;
         }
 
-        /* 📱 모바일 화면에서만 적용되는 마법의 코드 (화면 위로 끌어올리기) */
+        /* 📱 모바일 전용 (태블릿/PC는 영향 안 받음) */
         @media (max-width: 768px) {
             body {
-                /* 완벽한 중앙 정렬 대신, 시작점을 위에서 18% 위치로 끌어올림 */
-                justify-content: flex-start;
-                padding-top: 18vh; 
+                /* 고양이를 화면 정중앙에 완벽하게 고정 */
+                justify-content: center; 
+                padding-top: 0;
             }
             .info-link {
-                margin-bottom: 5px; /* 글자와 고양이 사이 간격을 확 좁힘 */
+                /* 글자를 흐름에서 떼어내서 화면 상단 빈 공간의 딱 중간(1~3 중 2 위치)에 배치 */
+                position: absolute; 
+                top: 18%; 
+                margin-bottom: 0;
             }
             .cat-container {
-                width: 95%; /* 폰에서는 고양이가 꽉 차 보이게 확대 */
+                width: 90%;
             }
         }
     </style>
