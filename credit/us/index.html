@@ -23,7 +23,11 @@
             color: #000000;
             padding: 40px 20px;
             line-height: 1.1; 
-            overflow-x: hidden;
+            
+            /* ⭐️ 화면 위아래 스크롤(스와이프) 완벽 고정 */
+            overflow: hidden; 
+            touch-action: none; /* 터치로 끌어당기는 액션 차단 */
+            height: 100dvh; /* 모바일 화면 높이에 딱 맞춤 */
         }
 
         .container {
@@ -38,22 +42,19 @@
             -webkit-tap-highlight-color: transparent;
         }
 
-        /* 1. 상단 Credit 과 En / Cat 구역 */
         .top-header {
             display: flex;
             justify-content: space-between;
-            align-items: baseline; /* 글자 아래쪽 라인을 완벽하게 맞춤 */
+            align-items: baseline; 
             margin-bottom: 40px;
         }
 
-        /* ⭐️ 변경: 타이틀이 링크가 되었으므로 마우스 커서 설정 추가 */
         .title-text {
             font-size: clamp(3rem, 12vw, 4.5rem);
             letter-spacing: -0.03em;
             cursor: pointer;
         }
 
-        /* ⭐️ 변경점: Credit이랑 완벽하게 똑같은 폰트 크기로 수정 */
         .lang-switch {
             font-size: clamp(3rem, 12vw, 4.5rem); 
             letter-spacing: -0.03em;
@@ -62,14 +63,12 @@
         .lang-switch .active { color: #000000; }
         .lang-switch .inactive { color: #aaaaaa; }
 
-        /* 2. Made by @w4at */
         .subtitle {
             font-size: clamp(2.2rem, 8.5vw, 3.5rem);
             letter-spacing: -0.03em;
             margin-bottom: 50px;
         }
 
-        /* 3. SNS 링크 리스트 */
         .sns-list {
             display: flex;
             flex-direction: column;
