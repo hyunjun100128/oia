@@ -17,13 +17,11 @@
         }
 
         body {
-            /* 폰트 전체 적용 (가장 굵은 900 적용) */
             font-family: "Outfit", sans-serif;
             font-weight: 900;
             background-color: #ffffff;
             color: #000000;
             padding: 40px 20px;
-            /* 글자 위아래 간격을 사진처럼 좁게 설정 */
             line-height: 1.1; 
             overflow-x: hidden;
         }
@@ -33,48 +31,49 @@
             margin: 0 auto;
         }
 
-        /* 메인 타이틀 */
+        /* ⭐️ 변경 1: 타이틀 누르면 메인으로 돌아가는 기능 */
+        .title-link {
+            text-decoration: none; /* 밑줄 제거 */
+            color: inherit; /* 검은색 유지 */
+            display: block;
+            margin-bottom: 60px;
+            cursor: pointer;
+        }
+
         .main-title {
             font-size: clamp(2rem, 8vw, 3rem);
             text-align: center;
-            margin-bottom: 50px;
             letter-spacing: -0.03em;
         }
 
-        /* 각 동물별 가로 한 줄 구역 */
         .row {
             display: flex;
             gap: 15px;
-            margin-bottom: 35px;
-            align-items: flex-start; /* 위쪽 정렬 */
+            margin-bottom: 50px; 
+            align-items: stretch; /* 텍스트 구역이 사진 구역과 같은 높이를 가지도록 늘림 */
         }
 
-        /* 짝수 줄(오른쪽 정렬)을 위한 설정 */
         .row.reverse {
             flex-direction: row-reverse;
         }
 
-        /* 이름 + 사진이 들어가는 칸 (화면의 약 40% 차지) */
         .side-col {
             flex: 0 0 42%;
             display: flex;
             flex-direction: column;
         }
 
-        /* 오른쪽 정렬일 때 이름과 사진을 오른쪽으로 붙임 */
         .row.reverse .side-col {
             align-items: flex-end;
         }
 
-        /* 동물 이름 스타일 */
         .name {
             font-size: clamp(2.5rem, 10vw, 4rem);
             letter-spacing: -0.03em;
             margin-bottom: 5px;
-            white-space: nowrap; /* 글자 줄바꿈 방지 */
+            white-space: nowrap;
         }
 
-        /* 사진 및 GIF를 정사각형으로 고정하는 틀 */
         .img-box {
             width: 100%;
             aspect-ratio: 1 / 1;
@@ -85,36 +84,45 @@
         .img-box img {
             width: 100%;
             height: 100%;
-            object-fit: cover; /* 사진이 찌그러지지 않고 정사각형에 꽉 차게 */
+            object-fit: cover;
         }
 
-        /* Tenor GIF 아래에 뜨는 파란색 글씨 숨기기 */
         .tenor-gif-embed a {
             display: none !important;
         }
 
-        /* 설명 글 스타일 */
+        /* ⭐️ 변경 2: 텍스트를 사진 높이에 맞춰 중앙 정렬 & 깔끔한 비율 조정 */
         .text-col {
             flex: 1;
-            font-size: clamp(1.4rem, 6vw, 2.2rem);
+            font-size: clamp(1.4rem, 5.5vw, 2.2rem);
             letter-spacing: -0.03em;
-            padding-top: 5px; /* 사진과 살짝 높이를 맞추기 위함 */
-            text-align: left; /* 설명글은 무조건 왼쪽 정렬 (사진과 동일) */
-            word-break: keep-all; /* 단어 단위로 예쁘게 줄바꿈 */
+            line-height: 1.05; /* 포스터처럼 글자 위아래가 쫀쫀하게 붙도록 수정 */
+            display: flex;
+            flex-direction: column;
+            justify-content: center; /* 텍스트를 수직 한가운데로 예쁘게 배치 */
+            text-align: left; 
+            word-break: keep-all;
+        }
+
+        /* 사진이 오른쪽일 때는 텍스트도 오른쪽 정렬을 해서 레이아웃 균형을 맞춤 */
+        .row.reverse .text-col {
+            text-align: right;
         }
     </style>
 </head>
 <body>
 
     <div class="container">
-        <h1 class="main-title">Benvinguts a oia.cat!</h1>
+        <a href="/" class="title-link">
+            <h1 class="main-title">Benvinguts a oia.cat!</h1>
+        </a>
 
         <div class="row">
             <div class="side-col">
                 <div class="name">gat :</div>
                 <div class="img-box">
                     <div class="tenor-gif-embed" data-postid="12805916815008299407" data-share-method="host" data-aspect-ratio="1" data-width="100%">
-                        <a href="https://tenor.com/view/oia-uia-oia-cat-uia-cat-catcultclassics-gif-12805916815008299407">Oia Uia Sticker</a>from <a href="https://tenor.com/search/oia-stickers">Oia Stickers</a>
+                        <a href="https://tenor.com/view/oia-uia-oia-cat-uia-cat-catcultclassics-gif-12805916815008299407">Oia Uia Sticker</a>
                     </div> 
                     <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
                 </div>
